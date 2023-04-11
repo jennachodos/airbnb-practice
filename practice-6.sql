@@ -16,7 +16,7 @@
 -- | Burnside               | 10       |
 
 
-SELECT listings.neighborhood, listings.id, Count(reviews.id)
-FROM listings INNER JOIN reviews ON listings.id = reviews.id
-GROUP BY neighborhood
+SELECT listings.neighborhood, count(reviews.id)
+FROM reviews INNER JOIN listings ON reviews.id = listings.id
+GROUP BY listings.neighborhood
 ;
